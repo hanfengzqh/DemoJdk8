@@ -16,7 +16,4 @@ public class Md5Utils {
         System.out.println("md5String");
         return "md5String";
     }
-
-
-
 }

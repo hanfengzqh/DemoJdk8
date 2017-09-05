@@ -50,6 +50,7 @@ public class MyClass {
         //lambda 调用filds obj::method
         Md5Utils utils = new Md5Utils();
         new Thread(utils::getFilds).start();
+        new Thread(Md5Utils::new).start();
     }
 
     /**
