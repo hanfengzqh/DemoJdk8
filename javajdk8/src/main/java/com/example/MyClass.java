@@ -13,11 +13,13 @@ public class MyClass {
         testThreadLambda();
         //lambda 方法引用::
         testMethodLambda();
-
         //lambda 集合内部循环
         testListForEach();
     }
 
+    /**
+     * lambda 集合内部循环
+     */
     private static void testListForEach() {
         List<Persion> list = new ArrayList<>();
         //jdk 5.0之前
@@ -50,12 +52,18 @@ public class MyClass {
         new Thread(utils::getFilds).start();
     }
 
+    /**
+     * jdk8之后 匿名函数(只保留参数列表 -> 引用方法体)
+     */
     private static void testThreadLambda() {
         //只保留参数列表->引用方法体
         new Thread(() -> System.out.println("current thread name:subThread jdk 8")
         ).start();
     }
 
+    /**
+     * jdk8之前的函数打印测试
+     */
     private static void testThread() {
         new Thread(new Runnable() {
             @Override

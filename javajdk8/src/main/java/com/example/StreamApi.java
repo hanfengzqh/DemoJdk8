@@ -21,7 +21,6 @@ public class StreamApi {
                 .sum();//sum:属于聚合函数，同时也是结束函数(此时才进行循环)
         nums.forEach(System.out::println);
         System.out.println("sum: " + sum);
-
     }
 
 }
