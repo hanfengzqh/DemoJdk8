@@ -1,7 +1,15 @@
 package com.example;
 
+import java.sql.Date;
+import java.time.Clock;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MyClass {
     public static void main(String[] args) {
@@ -15,6 +23,44 @@ public class MyClass {
         testMethodLambda();
         //lambda 集合内部循环
         testListForEach();
+
+        //2.0 lambda表达式
+        List<String> name = Arrays.asList("liujie","huangrui","jiguangpu","zhangsan","wangwu");
+
+        Collections.sort(name,(String a, String b) -> {return b.compareTo(a);});
+        Collections.sort(name,(a,b) -> {return b.compareTo(a);});
+        Collections.sort(name,(a,b) -> b.compareTo(a));
+
+        //老版本
+        Collections.sort(name, new Comparator<String>() {
+            @Override
+            public int compare(String s, String t1) {
+                return t1.compareTo(s);
+            }
+        });
+
+
+        //操作符--升序
+        name.stream()
+                .map(a -> a.toUpperCase())
+                .sorted((a,b) -> a.compareTo(b))
+                .forEach(System.out::println);
+
+
+        //操作符--降序
+        name.stream()
+                .map(a -> a.toUpperCase())
+                .sorted((a,b) -> b.compareTo(a))
+                .forEach(System.out::println);
+
+        Map<String,String> map = new HashMap<>();
+        map.putIfAbsent("","");
+
+        //Clock时钟
+        Clock clock = Clock.systemDefaultZone();
+        Instant instant = clock.instant();
+        java.util.Date from = Date.from(instant);
+
     }
 
     /**
