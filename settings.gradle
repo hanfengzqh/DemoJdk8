@@ -1,1 +1,1 @@
-include ':app', ':javajdk8'
+include ':app', ':javajdk8', ':demoexe'

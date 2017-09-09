@@ -5,8 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.zqh.jdk.port.Formula;
 import com.zqh.jdk.utils.TestMethodRefrence;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
 //        button1.setOnClickListener(TestMethodRefrence::doSomething2);
 
 
-        //1.0 接口默认方法
-        Formula formula = new Formula() {
+        //1.0 接口默认方法需要的最低执行版本为API24
+        /*Formula formula = new Formula() {
             @Override
             public double caculate(int a) {
                 return sqrt(a*100);
@@ -50,7 +54,29 @@ public class MainActivity extends AppCompatActivity {
 
         double caculate = formula.caculate(2);
         System.out.println("caculate = "+caculate);
-        double sqrt = formula.sqrt(3);
+        double sqrt = formula.sqrt(3);*/
+
+        //2.0 lambda表达式
+        List<String> name = Arrays.asList("liujie","huangrui","jiguangpu","zhangsan","wangwu");
+
+        Collections.sort(name,(String a,String b) -> {return b.compareTo(a);});
+        Collections.sort(name,(a,b) -> {return b.compareTo(a);});
+        Collections.sort(name,(a,b) -> b.compareTo(a));
+
+        //老版本
+        Collections.sort(name, new Comparator<String>() {
+            @Override
+            public int compare(String s, String t1) {
+                return t1.compareTo(s);
+            }
+        });
+
+
+        //操作符
+        name.stream()
+                .map(a -> a.toUpperCase())
+                .sorted((a,b) -> b.compareTo(b))
+                .forEach(System.out::println);
 
     }
 
