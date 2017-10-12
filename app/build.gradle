@@ -1,35 +1,117 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.application'//说明module的类型,
+// com.android.application是android程序,com.android.library为库
 apply plugin: 'me.tatarka.retrolambda'////2.0
+
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion rootProject.ext.android.compileSdkVersion//编译的SDK版本
+    buildToolsVersion rootProject.ext.android.buildToolsVersion//编译的Tools版本
+
     defaultConfig {
         applicationId "com.zqh.jdk"
-        minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.android.minSdkVersion//支持的最低版本
+        targetSdkVersion rootProject.ext.android.targetSdkVersion//支持的目标版本
+        versionCode rootProject.ext.android.versionCode//版本号
+        versionName rootProject.ext.android.versionName//版本名
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        manifestPlaceholders = [ MY_CHANNEL:"xiaomi" ]
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+    //签名配置
+    signingConfigs{
+        //直接配置
+        signR1{
+            storeFile file("build/2.jks");
+            storePassword "123456"
+            keyAlias "test"
+            keyPassword "123456"
+        }
+
+        //动态参数配置
+        signR2{
+            storeFile       System.properties["keyStore"]
+            storePassword   System.properties["keyStorePassword"]
+            keyAlias        System.properties["keyAlias"]
+            keyPassword     System.properties["keyAliasPassword"]
+        }
+
+        //动态参数配置
+        release{
+            storeFile       System.properties["keyStore"]
+            storePassword   System.properties["keyStorePassword"]
+            keyAlias        System.properties["keyAlias"]
+            keyPassword     System.properties["keyAliasPassword"]
         }
     }
+
+    //编译的 lint 开关，程序在buid的时候，会执行lint检查，
+    // 有任何的错误或者警告提示，都会终止构建，我们可以将其关掉。
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    productFlavors{
+        xiaomi {}
+        _360 {}
+        baidu {}
+        huawei{}
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [MY_CHANNEL: name]
+    }
+
+
+    buildTypes {//构建发布类型
+
+        release {//发布版
+            minifyEnabled true//混淆打开
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'//制定混淆规则文件
+            signingConfig signingConfigs.release
+        }
+
+        debug {//测试版
+            minifyEnabled false//混淆关闭
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'//制定混淆规则文件
+            signingConfig signingConfigs.release
+        }
+
+        r1{
+            applicationIdSuffix ".r1"
+            signingConfig signingConfigs.signR1
+        }
+
+        r2{
+            applicationIdSuffix ".r2"
+            signingConfig signingConfigs.signR2
+        }
+
+        r3{
+            applicationIdSuffix ".r3"
+        }
+
+    }
     //引用编译条件1.0
-    compileOptions {
+    compileOptions {// Java 的版本配置
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    //源码设置(项目目录结构的设置)
+    sourceSets{
+        main{
+            res.srcDirs=['src/main/res','src/main/res/layout/activity','src/main/res/layout/fragment']
+        }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(dir: 'libs', include: ['*.jar'])//编译lib目录下的.jar文件
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile rootProject.ext.dependencies["appcompat-v7"]//编码第三方开源库
+    compile rootProject.ext.dependencies["constraint-layout"]
     testCompile 'junit:junit:4.12'
 }

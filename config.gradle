@@ -1,0 +1,16 @@
+//全局配置
+ext{
+    android = [
+            compileSdkVersion :26,
+            buildToolsVersion : "26.0.1",
+            minSdkVersion :19,
+            targetSdkVersion :26,
+            versionCode :1,
+            versionName :"1.0"
+    ]
+
+    dependencies = [
+             "appcompat-v7":'com.android.support:appcompat-v7:26.+',
+             "constraint-layout":'com.android.support.constraint:constraint-layout:1.0.2',
+    ]
+}
