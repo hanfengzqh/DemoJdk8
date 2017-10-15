@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'//说明module的类型,
 // com.android.application是android程序,com.android.library为库
+//project.apply([plugin: 'com.android.application'])完整写法
 apply plugin: 'me.tatarka.retrolambda'////2.0
 
 android {
@@ -114,4 +115,20 @@ dependencies {
     compile rootProject.ext.dependencies["appcompat-v7"]//编码第三方开源库
     compile rootProject.ext.dependencies["constraint-layout"]
     testCompile 'junit:junit:4.12'
+}
+//获取Gradle对象相关信息的task
+task printGradleInfo{
+    println "----------------------------------------------- "
+    println "In posdevice, gradle id is " +gradle.hashCode()
+    println "Home Dir:" + gradle.gradleHomeDir
+    println "User Home Dir:" + gradle.gradleUserHomeDir
+    println "Parent: " + gradle.parent
+}
+
+task disableDebugBuild{
+    tasks.whenTaskAdded { task ->
+        if (task.name.contains('AndroidTest')) {
+            task.enabled = false
+        }
+    }
 }
