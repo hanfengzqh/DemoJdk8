@@ -5,10 +5,11 @@ buildscript {//声明仓库的源
     repositories {//一个新的中央远程仓库
         jcenter()
     }
+
     dependencies {//声明 android gradle plugin版本
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'me.tatarka:gradle-retrolambda:3.7.0'//3.0
-
+        classpath "io.realm:realm-gradle-plugin:3.5.0"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

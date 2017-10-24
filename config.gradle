@@ -1,16 +1,21 @@
 //全局配置
-ext{
+ext {
     android = [
-            compileSdkVersion :26,
-            buildToolsVersion : "26.0.1",
-            minSdkVersion :19,
-            targetSdkVersion :26,
-            versionCode :1,
-            versionName :"1.0"
+            compileSdkVersion: 26,
+            buildToolsVersion: "26.0.1",
+            minSdkVersion    : 19,
+            targetSdkVersion : 26,
+            versionCode      : 1,
+            versionName      : "1.0"
     ]
 
     dependencies = [
-             "appcompat-v7":'com.android.support:appcompat-v7:26.+',
-             "constraint-layout":'com.android.support.constraint:constraint-layout:1.0.2',
+            "appcompat-v7"        : 'com.android.support:appcompat-v7:26.+',
+            "constraint-layout"   : 'com.android.support.constraint:constraint-layout:1.0.2',
+            "butterknife-compiler": 'com.jakewharton:butterknife-compiler:8.8.1',
+            "butterknife"         : 'com.jakewharton:butterknife:8.8.1',
+            "gson"                : 'com.google.code.gson:gson:2.8.2',
+            "fastjson"            : 'com.alibaba:fastjson:1.2.39',
+            "logger"              : 'com.orhanobut:logger:2.1.1'
     ]
 }

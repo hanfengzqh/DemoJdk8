@@ -114,6 +114,8 @@ dependencies {
     })
     compile rootProject.ext.dependencies["appcompat-v7"]//编码第三方开源库
     compile rootProject.ext.dependencies["constraint-layout"]
+    compile rootProject.ext.dependencies["butterknife-compiler"]
+    compile rootProject.ext.dependencies["butterknife"]
     testCompile 'junit:junit:4.12'
 }
 //获取Gradle对象相关信息的task

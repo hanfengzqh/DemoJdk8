@@ -1,30 +1,30 @@
-apply plugin: 'com.android.application'
-apply plugin: 'me.tatarka.retrolambda'////2.0
+apply plugin: 'com.android.library'
+apply plugin: 'realm-android'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion//编译的SDK版本
     buildToolsVersion rootProject.ext.android.buildToolsVersion//编译的Tools版本
 
     defaultConfig {
-        applicationId "com.zqh.jdk.demoexe"
         minSdkVersion rootProject.ext.android.minSdkVersion//支持的最低版本
         targetSdkVersion rootProject.ext.android.targetSdkVersion//支持的目标版本
         versionCode rootProject.ext.android.versionCode//版本号
         versionName rootProject.ext.android.versionName//版本名
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        multiDexEnabled true
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    //引用编译条件1.0
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+}
+
+repositories {  //添加stetho-realm代码仓库地址
+    maven {
+        url 'https://github.com/uPhyca/stetho-realm/raw/master/maven-repo'
     }
 }
 
@@ -33,11 +33,17 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile 'junit:junit:4.12'
     compile rootProject.ext.dependencies["appcompat-v7"]
     //编码第三方开源库
     compile rootProject.ext.dependencies["constraint-layout"]
+    //chrome://inspect/#devices
+    compile 'com.facebook.stetho:stetho:1.5.0'
+    //添加这两行
+    compile 'com.uphyca:stetho_realm:2.1.0'
     compile rootProject.ext.dependencies["butterknife-compiler"]
     compile rootProject.ext.dependencies["butterknife"]
-    compile 'fi.linuxbox.upcloud:groovy-upcloud-json-gjson:0.0.6'
+    testCompile 'junit:junit:4.12'
+    compile rootProject.ext.dependencies["gson"]
+    compile rootProject.ext.dependencies["fastjson"]
+    compile rootProject.ext.dependencies["logger"]
 }

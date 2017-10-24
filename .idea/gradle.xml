@@ -9,6 +9,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/commutilslibrary" />
+            <option value="$PROJECT_DIR$/demoexe" />
+            <option value="$PROJECT_DIR$/javajdk8" />
+            <option value="$PROJECT_DIR$/realmapp" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
