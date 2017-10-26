@@ -41,8 +41,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mContext = this;
         initRealm();
         setListener();
-
-
     }
 
     private void setListener() {
