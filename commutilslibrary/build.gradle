@@ -12,6 +12,11 @@ android {
         versionName rootProject.ext.android.versionName//版本名
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
     }
 
     buildTypes {
@@ -26,6 +31,7 @@ repositories {  //添加stetho-realm代码仓库地址
     maven {
         url 'https://github.com/uPhyca/stetho-realm/raw/master/maven-repo'
     }
+    google()
 }
 
 dependencies {

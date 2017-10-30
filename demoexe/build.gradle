@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'me.tatarka.retrolambda'////2.0
+//apply plugin: 'me.tatarka.retrolambda'////2.0
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion//编译的SDK版本
