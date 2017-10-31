@@ -41,15 +41,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    //compile rootProject.ext.dependencies["appcompat-v7"]
-    //编码第三方开源库
-    //compile rootProject.ext.dependencies["constraint-layout"]
-    //chrome://inspect/#devices
-    //compile 'com.facebook.stetho:stetho:1.5.0'
-    //添加这两行
-    //compile 'com.uphyca:stetho_realm:2.1.0'
-    //compile rootProject.ext.dependencies["butterknife-compiler"]
-    //compile rootProject.ext.dependencies["butterknife"]
     testCompile 'junit:junit:4.12'
     compile project(':commutilslibrary')
+    compile 'com.uphyca:stetho_realm:2.0.0'
 }

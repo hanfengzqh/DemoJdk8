@@ -17,6 +17,7 @@
         android:padding="5dp"
         android:text="创建数据库"
         android:textColor="@android:color/white"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

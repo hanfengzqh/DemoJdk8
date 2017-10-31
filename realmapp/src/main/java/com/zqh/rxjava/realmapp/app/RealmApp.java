@@ -8,6 +8,8 @@ import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
+import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
+import com.zqh.rxjava.realmapp.dbmanager.DbManager;
 
 import io.realm.Realm;
 
@@ -28,13 +30,14 @@ public class RealmApp extends Application {
     private void init() {
         //Realm默认初始化
         Realm.init(this);
+        DbManager.get().init(0);
 //        Realm mRealm = Realm.getDefaultInstance();
-        //stetho初始化
-        Stetho.initialize(
+        Stetho.initialize(//Stetho初始化
                 Stetho.newInitializerBuilder(this)
                         .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
-                        .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
-                        .build());
+                        .enableWebKitInspector(RealmInspectorModulesProvider.builder(this).build())
+                        .build()
+        );
         /**初始化Logger*/
         FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
                 .showThreadInfo(false)  //（可选）是否显示线程信息。 默认值为true
