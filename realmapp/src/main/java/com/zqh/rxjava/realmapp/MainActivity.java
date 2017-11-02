@@ -69,12 +69,24 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.bt_deletedb: {
                 ToastUtil.showShortToast(mContext, "删除数据");
                 Logger.d("删除数据");
-
+                RealmResults<User> users = DbManager.get().queryDataAll();
+                for (User mUser : users) {
+                    if (mUser.getAge() < 36) {
+                        DbManager.get().delete(mUser);
+                    }
+                }
                 break;
             }
             case R.id.bt_modifydb: {
                 ToastUtil.showShortToast(mContext, "修改数据");
                 Logger.d("修改数据");
+                RealmResults<User> users = DbManager.get().queryDataAll();
+                for (User mUser : users) {
+                    User user = new User();
+                    user.setName("USER" + mUser.getName());
+                    user.setAge(20 + mUser.getAge());
+                    DbManager.get().updateById(mUser.getId(), user);
+                }
                 break;
             }
             case R.id.bt_querydb: {
@@ -85,10 +97,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             }
         }
     }
-
-
-
-
 
     @Override
     protected void onDestroy() {
