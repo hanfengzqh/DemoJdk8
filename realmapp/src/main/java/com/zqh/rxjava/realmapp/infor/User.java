@@ -5,13 +5,28 @@ import java.io.Serializable;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
 
 public class User extends RealmObject implements Serializable{
     @PrimaryKey
     private String id;
     private String name;
     private int age;
+    @Required
+    private String fullName;
+
     private RealmList<User> friends;
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public User() {
+    }
 
     public String getName() {
         return name;

@@ -39,7 +39,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile rootProject.ext.dependencies["appcompat-v7"]
+    //compile rootProject.ext.dependencies["appcompat-v7"]
     //编码第三方开源库
     compile rootProject.ext.dependencies["constraint-layout"]
     //chrome://inspect/#devices

@@ -10,6 +10,7 @@ import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
 import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
 import com.zqh.rxjava.realmapp.dbmanager.DbManager;
+import com.zqh.rxjava.realmapp.dbmanager.Migration;
 
 import io.realm.Realm;
 
@@ -30,7 +31,9 @@ public class RealmApp extends Application {
     private void init() {
         //Realm默认初始化
         Realm.init(this);
-        DbManager.get().init(0);
+        Migration mMigration = new Migration();
+        DbManager.get().init(1,mMigration);
+//        DbManager.get().init(0);
 //        Realm mRealm = Realm.getDefaultInstance();
         Stetho.initialize(//Stetho初始化
                 Stetho.newInitializerBuilder(this)
