@@ -1,2 +1,2 @@
-include ':app', ':javajdk8', ':demoexe', ':realmapp', ':commutilslibrary'//multiprojects包含哪些子projects,
+include ':app', ':javajdk8', ':demoexe', ':realmapp', ':commutilslibrary', ':dagger2demo'//multiprojects包含哪些子projects,
 //setting.gradle文件将会在gradle初始化时期执行

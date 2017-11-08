@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/DemoJdk8.iml" filepath="$PROJECT_DIR$/DemoJdk8.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/commutilslibrary/commutilslibrary.iml" filepath="$PROJECT_DIR$/commutilslibrary/commutilslibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dagger2demo/dagger2demo.iml" filepath="$PROJECT_DIR$/dagger2demo/dagger2demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/demoexe/demoexe.iml" filepath="$PROJECT_DIR$/demoexe/demoexe.iml" />
       <module fileurl="file://$PROJECT_DIR$/javajdk8/javajdk8.iml" filepath="$PROJECT_DIR$/javajdk8/javajdk8.iml" />
       <module fileurl="file://$PROJECT_DIR$/realmapp/realmapp.iml" filepath="$PROJECT_DIR$/realmapp/realmapp.iml" />

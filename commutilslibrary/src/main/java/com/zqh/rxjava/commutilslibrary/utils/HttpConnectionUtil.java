@@ -1,4 +1,4 @@
-package com.zqh.rxjava.commutilslibrary;
+package com.zqh.rxjava.commutilslibrary.utils;
 
 import com.orhanobut.logger.Logger;
 

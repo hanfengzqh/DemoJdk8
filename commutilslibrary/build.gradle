@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'realm-android'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion//编译的SDK版本
@@ -27,13 +26,6 @@ android {
     }
 }
 
-repositories {  //添加stetho-realm代码仓库地址
-    maven {
-        url 'https://github.com/uPhyca/stetho-realm/raw/master/maven-repo'
-    }
-    google()
-}
-
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -45,7 +37,7 @@ dependencies {
     //chrome://inspect/#devices
     compile 'com.facebook.stetho:stetho:1.5.0'
     //添加这两行
-    compile 'com.uphyca:stetho_realm:2.1.0'
+    //compile 'com.uphyca:stetho_realm:2.1.0'
     compile rootProject.ext.dependencies["butterknife-compiler"]
     compile rootProject.ext.dependencies["butterknife"]
     testCompile 'junit:junit:4.12'

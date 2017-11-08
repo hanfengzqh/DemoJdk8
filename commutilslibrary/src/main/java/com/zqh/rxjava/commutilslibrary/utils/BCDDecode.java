@@ -1,4 +1,4 @@
-package com.zqh.rxjava.commutilslibrary;
+package com.zqh.rxjava.commutilslibrary.utils;
 
 /**
  * 编码工具类 BCD与十进制的转换
