@@ -23,20 +23,6 @@ public class FastJsonUtils {
     }
 
     /**
-     * 功能描述：把JSON数据转换成指定的java对象
-     *
-     * @param jsonData JSON数据
-     * @param clazz    指定的java对象
-     * @return
-     * @throws Exception
-     * @author myclover
-     */
-    public static <T> T json2pojo(String jsonData, Class<T> clazz)
-            throws Exception {
-        return JSON.parseObject(jsonData, clazz);
-    }
-
-    /**
      * 功能描述：把JSON数据转换成指定的java对象列表
      *
      * @param jsonData JSON数据

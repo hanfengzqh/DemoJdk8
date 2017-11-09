@@ -14,8 +14,6 @@ buildscript {//声明仓库的源
         classpath "io.realm:realm-gradle-plugin:2.2.2"//添加这一行
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-        //添加apt插件
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 
 }
