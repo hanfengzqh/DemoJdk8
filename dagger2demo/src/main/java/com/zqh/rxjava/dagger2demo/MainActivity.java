@@ -45,5 +45,4 @@ public class MainActivity extends AppCompatActivity {
         component.inject(this);
 
     }
-
 }
