@@ -4,9 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.zqh.rxjava.dagger2demo.bean.Person;
-import com.zqh.rxjava.dagger2demo.module.MainModule;
-import com.zqh.rxjava.dagger2demo.port.DaggerMainComponent;
-import com.zqh.rxjava.dagger2demo.port.MainComponent;
 import com.zqh.rxjava.dagger2demo.qualifier.PersonWithContext;
 import com.zqh.rxjava.dagger2demo.qualifier.PersonWithName;
 
@@ -39,10 +36,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        MainComponent component = DaggerMainComponent.builder()
-                .mainModule(new MainModule(this)).build();
-        component.inject(this);
 
     }
 }

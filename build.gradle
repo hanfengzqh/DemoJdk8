@@ -9,7 +9,7 @@ buildscript {//声明仓库的源
     }
 
     dependencies {//声明 android gradle plugin版本
-        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
        // classpath 'me.tatarka:gradle-retrolambda:3.7.0'//3.0
         classpath "io.realm:realm-gradle-plugin:2.2.2"//添加这一行
         // NOTE: Do not place your application dependencies here; they belong
